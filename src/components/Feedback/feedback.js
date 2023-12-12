@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import styles from './Feedback.module.css';
+import Section from './section';
+import FeedbackOptions from './options'
+import Statistics from './statistics';
 
 class Feedback extends Component {
   state = {
@@ -31,21 +33,26 @@ class Feedback extends Component {
     const positivePercentage = this.countPositiveFeedbackPercentage();
 
     return (
-        <div className={styles.feedback}>
-          <h1>Please leave feedback</h1>
-          <button onClick={() => this.handleFeedback('good')}>Good</button>
-          <button onClick={() => this.handleFeedback('neutral')}>Neutral</button>
-          <button onClick={() => this.handleFeedback('bad')}>Bad</button>
-  
-          <h2>Statistics</h2>
-          <p>Good: {good}</p>
-          <p>Neutral: {neutral}</p>
-          <p>Bad: {bad}</p>
-          <p>Total: {totalFeedback}</p>
-          <p>Positive feedback: {positivePercentage}%</p>
-        </div>
-      );
-    }
+      <div>
+        <Section title="Please leave feedback">
+          <FeedbackOptions
+            options={['good', 'neutral', 'bad']}
+            onLeaveFeedback={this.handleFeedback}
+          />
+        </Section>
+
+        <Section title="Statistics">
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={totalFeedback}
+            positivePercentage={positivePercentage}
+          />
+        </Section>
+      </div>
+    );
   }
+}
   
   export default Feedback;
