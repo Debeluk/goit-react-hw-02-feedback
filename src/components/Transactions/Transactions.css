@@ -1,0 +1,42 @@
+.transaction-history-wrapper {
+    width: 250px;
+    max-height: 300px;
+    margin: 20px auto;
+    overflow-x: auto;
+    overflow-y: auto;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 12px;
+  }
+  
+  .transaction-history {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .transaction-head {
+    background-color: #4a76a8;
+    color: white;
+  }
+  
+  .th-item,
+  .td-item {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .transaction-row:nth-child(odd) {
+    background-color: #ecf2f9;
+  }
+  
+  .transaction-row:nth-child(even) {
+    background-color: #fff;
+  }
+  
+  .transaction-row:hover {
+    background-color: #d1e2f1;
+  }
