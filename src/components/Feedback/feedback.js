@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Section from './section';
-import FeedbackOptions from './options'
+import FeedbackOptions from './options';
 import Statistics from './statistics';
+import Notification from './notification';
 
 class Feedback extends Component {
   state = {
@@ -10,8 +11,8 @@ class Feedback extends Component {
     bad: 0,
   };
 
-  handleFeedback = (type) => {
-    this.setState((prevState) => ({
+  handleFeedback = type => {
+    this.setState(prevState => ({
       [type]: prevState[type] + 1,
     }));
   };
@@ -42,17 +43,21 @@ class Feedback extends Component {
         </Section>
 
         <Section title="Statistics">
-          <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={totalFeedback}
-            positivePercentage={positivePercentage}
-          />
+          {totalFeedback > 0 ? (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={totalFeedback}
+              positivePercentage={positivePercentage}
+            />
+          ) : (
+            <Notification message="There is no feedback" />
+          )}
         </Section>
       </div>
     );
   }
 }
-  
-  export default Feedback;
+
+export default Feedback;
