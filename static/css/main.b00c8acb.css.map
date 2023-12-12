@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.b00c8acb.css","mappings":"AAAA,0BACI,eACF","sources":["components/Feedback/Feedback.module.css"],"sourcesContent":[".feedback {\n    text-align: left;\n  }"],"names":[],"sourceRoot":""}
